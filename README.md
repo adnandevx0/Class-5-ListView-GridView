@@ -46,3 +46,94 @@ body: Column(
         ],
       ),
 </pre>
+<h3>GridView Builder</h3>
+<pre>
+
+        Column(
+        children: [
+          Expanded(
+            child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                crossAxisSpacing: 2,
+                mainAxisSpacing: 2,
+              ),
+              itemCount: listx.length,
+              itemBuilder: (context, index) {
+                return Container(
+                  height: 20,
+                  width: 20,
+                  color: Colors.red,
+                  child: Text(
+                    "${listx[index]}",
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+</pre>
+
+
+<h3>ListView Builder</h3>
+<pre>
+
+    
+class _HomePageState extends State<HomePage> {
+  @override
+  List<int> listx = [
+    2,
+    3,
+    34,
+    3,
+    543,
+    543,
+    54,
+    35,
+    435,
+    43,
+    543,
+    5,
+    435,
+    43,
+    543,
+  ];
+
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("MeetSoc"),
+        leading: Icon(Icons.usb),
+        actions: [
+          IconButton(onPressed: () {}, icon: Icon(Icons.near_me_rounded)),
+        ],
+      ),
+      body: Column(
+        children: [
+          //Expanded Must need
+          Expanded(
+            child: ListView.builder(
+              itemCount: listx.length,
+              itemBuilder: (context, index) {
+                return Padding(padding: EdgeInsetsGeometry.all(4),
+                child: Container(
+                  height: 50,
+                  width: double.infinity,
+                  color: Colors.red,
+                  child: Text(
+                    "${listx[index]}",
+                    style: TextStyle(color: Colors.white, fontSize: 15),
+                  ),
+                ),);
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+</pre>
